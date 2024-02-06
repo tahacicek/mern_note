@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const env = require('dotenv');
 const notRouter = require('./routes/notes');
-const notModel = require('./models/noteModel');
 
 env.config();
 const app = express();
