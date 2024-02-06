@@ -5,24 +5,12 @@ const noteController = require('../controllers/noteController');
 
 router.get('/', noteController.get);
 
-router.get('/:id', (req, res) => {
-    res.json({
-        message: `Note ${req.params.id}`
-    })
-});
+router.get('/:id', noteController.getById);
 
 router.post('/', noteController.create);
 
-router.delete('/:id', (req, res) => {
-    res.json({
-        message: `Delete note ${req.params.id}`
-    })
-});
+router.delete('/:id', noteController.deleted);
 
-router.patch('/:id', (req, res) => {
-    res.json({
-        message: `Update note ${req.params.id}`
-    })
-});
+router.patch('/:id', noteController.update);
 
 module.exports = router;
