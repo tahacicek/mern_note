@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-export default function NoteForm() {
+export default function NoteForm({ fetchNotes }) {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [error, setError] = useState(null)
@@ -21,6 +21,7 @@ export default function NoteForm() {
         if (!res.ok) {
             setError(data.message)
         }else{
+            fetchNotes();
             setError(null)
             setTitle('')
             setContent('')
