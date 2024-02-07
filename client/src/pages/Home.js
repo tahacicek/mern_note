@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import NoteDetail from "../components/NoteDetail"
+import NoteForm from "../components/NoteForm"
 
 export default function Home() {
 
@@ -19,14 +21,13 @@ export default function Home() {
 
     return (
         <div className="home">
+            <NoteForm />
             <div className="notlar">
                 {notes && notes.map(note => (
-                    <div key={note._id} className="note">
-                        <h2>{note.title}</h2>
-                        <p key={note._id}>{note.body}</p>
-                    </div>
+                    <NoteDetail key={note._id} not={note} />
                 ))}
             </div>
         </div>
     )
 }
+
